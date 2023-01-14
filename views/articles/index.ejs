@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Blog</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-4xl p-4">Blog</h1>
+        <a href="/articles/new" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 m-5 rounded ">New Article</a>
+        <div class="flex flex-wrap">
+
+        <% articles.forEach(article => { %>
+            <div class="w-1/2 p-4">
+                <div class="bg-white shadow-md rounded-lg overflow-hidden">
+                    <div class="bg-cover bg-center h-56 p-4" style="background-image: url(<%= article.image %>)"></div>
+                    <div class="p-4">
+                        <h1 class="text-xl font-bold"><%= article.title %></h1>
+                        <p class="text-gray-600 font-bold text-sm">
+                            <%= article.createdAt.toLocaleDateString() %>
+                        </p>
+                        <p class="mt-2 text-gray-600"><%= article.description %></p>
+
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+
+</body>
+</html>
